@@ -23,7 +23,8 @@
     // 🧠 Example of usage:
     // buildPeter() // should return { firstName: "Peter", lastName: "Pan", age: 12 }
     function buildPeter() {
-
+      let peter = {firstName: "Peter", lastName: "Pan", age: 12};
+      return peter;
     }
 
     // 👉 CHALLENGE 2
@@ -31,7 +32,8 @@
     // 🧠 Example of usage:
     // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
     function buildUser(firstName, lastName, age) {
-
+      let user = {firstName, lastName, age};
+      return user;
     }
 
     // 👉 CHALLENGE 3
@@ -42,18 +44,30 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice() {
-
+    function deletePrice(itemobj) {
+      if (itemobj.price >= 0) {
+        delete itemobj.price;
+        return itemobj;
+      }
+      else {
+        itemobj.priceless = true;
+        return itemobj;
+      }
     }
 
-    // 👉 CHALLENGE 4
+    // 👉 CHALLENGE 4 // I WANT TO SEE HOW HE DID IT IN THE VIDEO
     // 🧠 The function evenList takes an array as its argument and returns true if the array has an even number of elements, false otherwise.
     // 🧠 Note that the argument of the function is missing, you must write it.
     // 🧠 Examples of usage:
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
-
+      if (arr.length % 2 === 1) {
+        return false;
+      }
+      else {
+        return true;
+      }
     }
 
     // 👉 CHALLENGE 5
@@ -62,8 +76,13 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
-
+    function firstOrLast(arr, bool) {
+      if (bool === true){
+        return arr[0];
+      }
+      else {
+        return arr.at(-1);
+      }
     }
 
     // 👉 CHALLENGE 6
@@ -72,8 +91,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(arr, val) {
+      arr[arr.length] = val;
+      return arr;
     }
 
     // 👉 CHALLENGE 7
@@ -88,8 +108,16 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
-
+    function stripX(str) {
+      let result = [];
+      str = str.split('');
+      for (i in str) {
+        if (str[i] !== 'x'){
+          result.push(str[i]);
+        }
+      }
+      result = result.join('');
+      return result;
     }
 
     // 👉 CHALLENGE 8
@@ -101,8 +129,15 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
-
+    function stripChar(string, char) {
+      let result = [];
+      string = string.split('');
+      for (i in string) {
+        if (string[i] !== char) {
+          result.push(string[i]);
+        }
+      }
+      return result.join('');
     }
 
     // 👉 CHALLENGE 9
@@ -114,8 +149,14 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
-
+    function getProps(obj) {
+      let result = [];
+      for (i in obj) {
+        if (i !== 'age' && i !== 'married'){
+          result.push(i);
+        }
+      }
+      return result;
     }
 
     // 🧪 TESTS, do not work below this line
